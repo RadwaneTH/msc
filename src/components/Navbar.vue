@@ -9,11 +9,12 @@ function toggleMenu() {
         <div class="logo"><span>IN</span>deep</div>
         <button class="menu-toggle" @click="toggleMenu">☰</button>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><button>Sign in</button></li>
+            <li><router-link to="/">Accueil</router-link></li>
+            <li><router-link to="/">Services</router-link></li>
+            <li><router-link to="/">Secteurs</router-link></li>
+            <li><router-link to="/">Contact</router-link></li>
+            <li><router-link to="/">A propos indeep</router-link></li>
+            <li class="btn"><router-link to="/login"  >Log in</router-link></li>
         </ul>
     </nav>
 
@@ -33,7 +34,7 @@ function toggleMenu() {
     cursor: pointer;
 }
 .logo span{
-    color: #ff6f00;
+    color: #ee9865;
 }
 
 
@@ -63,7 +64,10 @@ function toggleMenu() {
     align-items: center;
 }
 
-.nav-links button{
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 70px;
     height: 40px;
     background-color: #18181c;
@@ -75,8 +79,8 @@ function toggleMenu() {
     cursor: pointer;
     transition: background-color 0.7s ease-in-out;
 }
-.nav-links button:hover{
-    background-color: #ff6f00;
+.btn:hover{
+    background-color: #9fb86e;
     border-color: transparent;
 
 }

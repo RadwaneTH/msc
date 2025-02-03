@@ -1,5 +1,6 @@
 <script setup>
-import Home from './components/Home.vue';
+import Navbar from './Navbar.vue'
+import Slider from './Slider.vue';
 
 
 </script>
@@ -7,7 +8,10 @@ import Home from './components/Home.vue';
 <template>
 
 <div >
-<router-view />
+
+<Navbar />
+<Slider />
+
 </div>
 
 
