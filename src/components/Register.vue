@@ -24,7 +24,7 @@ export default {
   methods: {
     async registerUser() {
       try {
-        const response = await axios.post('http://localhost:5000/api/register', this.user);
+        const response = await axios.post('/api/register', this.user);
         this.message = response.data.message;
       } catch (error) {
         this.message = error.response?.data?.message || 'Registration failed';
