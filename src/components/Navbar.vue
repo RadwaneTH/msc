@@ -14,7 +14,7 @@ function toggleMenu() {
             <li><router-link to="/">Secteurs</router-link></li>
             <li><router-link to="/">Contact</router-link></li>
             <li><router-link to="/">A propos indeep</router-link></li>
-            <li class="btn"><router-link to="/login"  >Log in</router-link></li>
+            <li class="btn"><router-link to="/register"  >Connexion</router-link></li>
         </ul>
     </nav>
 
@@ -68,7 +68,7 @@ function toggleMenu() {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 110px;
     height: 40px;
     background-color: #18181c;
     border-radius: 3px;

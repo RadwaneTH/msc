@@ -8,7 +8,9 @@
         <div class="text">
          <h1>Simplifiez votre accès.</h1>
          <h2>Vérifier avec iNdeep.</h2>
-         <div>
+
+         <div class="buton-part">
+
          <button class="green"> Mon espace</button>
          <button class="black"> A propos iNdeep</button>
 
@@ -97,6 +99,7 @@
     cursor: pointer;
     transition: background-color 0.7s ease-in-out;
     margin-right: 20px;
+  
 }
 
 .black:hover{
@@ -116,6 +119,8 @@
     cursor: pointer;
     transition: background-color 0.7s ease-in-out;
     margin-right: 20px;
+    margin-bottom: 10px;
+    
 }
 .green:hover{
     background-color: #18181c;
@@ -126,6 +131,10 @@
     color: #ffffff;
 }
 
+.buton-part{
+    display: flex;
+    margin-top: 30px;
+}
 
 
 
@@ -173,6 +182,12 @@
    .photo{
     width: 100%;
     height: 50vh;
+   }
+   .buton-part{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
    }
 }
 
