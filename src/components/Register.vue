@@ -1,98 +1,74 @@
 <script setup>
-import Navbar from './Navbar.vue';
-import axios from 'axios';
-</script>
+import { ref } from "vue";
+import axios from "axios";
+import Navbar from "./Navbar.vue";
 
+// Reactive state for user input
+const user = ref({
+  username: "",
+  email: "",
+  password: "",
+});
 
-<script>
+const message = ref(""); // To store success/error messages
 
+const registerUser = async () => {
+  try {
+    const response = await axios.post("/api/register", {
+      username: user.value.username,
+      email: user.value.email,
+      password: user.value.password,
+    });
 
-
-/////////////////////////////////////////
-
-export default {
-  data() {
-    return {
-      user: {
-        username: '',
-        email: '',
-        password: ''
-      },
-      message: ''
-    };
-  },
-  methods: {
-    async registerUser() {
-      try {
-        const response = await axios.post('/api/register', this.user);
-        this.message = response.data.message;
-      } catch (error) {
-        this.message = error.response?.data?.message || 'Registration failed';
-      }
-    }
+    message.value = response.data.message; // Success message
+  } catch (error) {
+    console.error("Registration error:", error.response?.data || error.message);
+    message.value = error.response?.data?.message || "Registration failed";
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////////
-
 </script>
+
 <template>
+  <Navbar />
+  <div class="register">
+    <form class="form" @submit.prevent="registerUser">
+      <div>
+        <h1>Tout commence par un compte.</h1>
+      </div>
 
-    <Navbar />
-    <div class="register">
-        
-        <form class="form" @submit.prevent="registerUser">
-            <div >
-                <h1>Tout comence par un compte.</h1>
-            </div>
+      <div>
+        <h2>Créer votre compte iNdeep.</h2>
+      </div>
 
-            <div>
-                <h2>Creer votre compte iNdeep.</h2>
-            </div>
+      <div style="display: flex; width: 100%;">
+        <input v-model="user.username" type="text" placeholder="Votre nom" style="width: 50%;" />
+        <input type="text" placeholder="Votre prénom" style="width: 50%;" />
+      </div>
 
-            <div style="display: flex;width: 100%;">
-                <input v-model="user.username" type="text" name="name" placeholder="Votre nom" style="width: 50%;" />
-                <input type="text" name="lastname" placeholder="Votre prenom" style="width: 50%;" />
-            </div>
+      <div style="display: flex; width: 100%;">
+        <input v-model="user.email" type="email" placeholder="Votre email" style="width: 100%;" />
+      </div>
 
-            <div style="display: flex;width: 100%;">
+      <div style="display: flex; width: 100%;">
+        <input v-model="user.password" type="password" placeholder="Votre mot de passe" style="width: 100%;" />
+      </div>
 
-                <input v-model="user.email"   type="email" name="email" placeholder="Votre email" style="width: 100%;" />
-               
-            </div>
+      <div style="display: flex; width: 100%;">
+        <input type="password" placeholder="Confirmer votre mot de passe" style="width: 100%;" />
+      </div>
 
-            <div style="display: flex;width: 100%;">
-                
-                <input  v-model="user.password"  type="password" name="password" placeholder="Votre mot de passe" style="width: 100%;" />
-            
-            </div>
+      <button type="submit">Créer un compte</button>
+    </form>
 
-            <div style="display: flex;width: 100%;">
-                
-                <input type="password" name="confirm" placeholder=" Confirmer votre mot de passe" style="width: 100%;" />
-            
-            </div>
-
-            <button type="submit"> Creer un compte</button>
-
-
-        </form>
-        <p v-if="message" style="color:aliceblue">{{ message }}</p>
-
-
-
-    </div>
+    <!-- Display Success/Error Messages -->
+    <p v-if="message" style="color: aliceblue;">{{ message }}</p>
+  </div>
 </template>
+
+<style scoped>
+/* Your existing styles remain unchanged */
+</style>
+
 
 <style scoped>
 .register {
