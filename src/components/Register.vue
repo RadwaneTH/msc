@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import Navbar from "./Navbar.vue";
+import Footer from './Footer.vue'
 
 // Reactive state for user input
 const user = ref({
@@ -63,6 +64,8 @@ const registerUser = async () => {
     <!-- Display Success/Error Messages -->
     <p v-if="message" style="color: aliceblue;">{{ message }}</p>
   </div>
+
+  <Footer />
 </template>
 
 <style scoped>

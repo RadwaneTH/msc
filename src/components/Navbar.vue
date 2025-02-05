@@ -1,142 +1,68 @@
 <script setup>
-function toggleMenu() {
-    document.querySelector(".nav-links").classList.toggle("show");
-}
+
 </script>
 
 <template>
-    <nav class="navbar">
-        <div class="logo"><span>IN</span>deep</div>
-        <button class="menu-toggle" @click="toggleMenu">☰</button>
-        <ul class="nav-links">
-            <li><router-link to="/">Accueil</router-link></li>
-            <li><router-link to="/">Services</router-link></li>
-            <li><router-link to="/">Secteurs</router-link></li>
-            <li><router-link to="/">Contact</router-link></li>
-            <li><router-link to="/">A propos indeep</router-link></li>
-            <li class="btn"><router-link to="/register"  >Connexion</router-link></li>
+
+
+<header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <RouterLink to="/" class="logo d-flex align-items-center me-auto me-xl-0">
+       
+        <h2 class="logo-text">iNdeep.fr</h2>
+      </RouterLink>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><RouterLink  to="/" class="active">Accueil</RouterLink ></li>
+          <li><RouterLink  to="/">Secteurs</RouterLink ></li>
+          <li><RouterLink  to="/">Services</RouterLink ></li>
+          <li><RouterLink  to="/">A propos</RouterLink ></li>
+          
+          <li class="dropdown"><RouterLink  to="/"><span>Solutions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></RouterLink>
+            <ul>
+              <li><RouterLink  to="/">Nos clients</RouterLink></li>
+              <li><RouterLink  to="/" >Entreprises</RouterLink></li>
+            </ul>
+          </li>
+          <li><RouterLink  to="/">Contact</RouterLink></li>
         </ul>
-    </nav>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <RouterLink  to="/inscription" class="btn-nav" style="color:white;font-size: 13px;">Inscription</RouterLink>
+      </div>
+
+    </div>
+  </header>
+
 
 </template>
 
 <style scoped>
-* {
-    margin: 0;
-    padding: 0;
-   
-}
 
-.logo{
-    margin-left: 120px;
+.btn-nav {
+    color:white;
+    background: var(--accent-color);
+    font-family: "Poppins", sans-serif;
+    
     font-weight: 500;
-    font-size: 18px;
-    cursor: pointer;
-}
-.logo span{
-    color: #ee9865;
-}
-
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #19191ec7;
-    backdrop-filter: saturate(180%) blur(20px);
-    color: white;
-    font-family: 'roboto';
-    font-weight: 300;
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    z-index: 9999;
-    border-bottom: #252525;
-    border-bottom-style: solid;
-    border-bottom-width: 0.1px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin-right: 120px;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn{
+    text-align: center;
+    letter-spacing: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110px;
-    height: 40px;
-    background-color: #18181c;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #2c2c2e;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.7s ease-in-out;
+    padding: 10px 27px;
+    border-radius: 2px;
+    transition: 0.5s;
+  
 }
-.btn:hover{
-    background-color: #9fb86e;
-    border-color: transparent;
-
-}
-
-.nav-links li {
-    margin: 0 10px;
-}
-
-.nav-links a {
-    color: #ffffffba;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.5s ease-in-out;
-}
-
-
-.nav-links a:hover {
-    color: #ffffff;
-   
-}
-
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #18181c;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-        margin-right:30px ;
-    }
-    .logo{
-    margin-left: 50px;
-}
+.logo-text{
+  font-size: 20px;
+    font-weight: 700;
+    padding-left: 20px;
 }
 
 

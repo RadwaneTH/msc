@@ -1,6 +1,7 @@
 <script setup>
 import Navbar from './Navbar.vue'
 import Slider from './Slider.vue';
+import Footer from './Footer.vue'
 
 
 </script>
@@ -11,6 +12,7 @@ import Slider from './Slider.vue';
 
 <Navbar />
 <Slider />
+<Footer />
 
 </div>
 
@@ -19,11 +21,6 @@ import Slider from './Slider.vue';
 
 <style scoped>
 
-* {
-    margin: 0;
-    padding: 0;
-   
-}
 
 
 
