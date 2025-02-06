@@ -1,69 +1,60 @@
 <script setup>
-
+// Ajoutez ici vos scripts si nécessaire
 </script>
 
 <template>
-
-
-<header id="header" class="header d-flex align-items-center light-background sticky-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <RouterLink to="/" class="logo d-flex align-items-center me-auto me-xl-0">
-       
-        <h2 class="logo-text">iNdeep.fr</h2>
-      </RouterLink>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><RouterLink  to="/" class="active">Accueil</RouterLink ></li>
-          <li><RouterLink  to="/">Secteurs</RouterLink ></li>
-          <li><RouterLink  to="/">Services</RouterLink ></li>
-          <li><RouterLink  to="/">A propos</RouterLink ></li>
+  <div class="navbar w-nav" role="banner" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease">
+    <div class="padding-global">
+      <div class="container w-container">
+        <div class="navbar-component">
+          <!-- Logo -->
+          <router-link to="/" class="brand w-nav-brand w--current" aria-current="page" aria-label="home">
+            <div class="logo-navbar" loading="lazy" style="font-size: 20px;font-weight: 500;">INdeep</div>
+          </router-link>
           
-          <li class="dropdown"><RouterLink  to="/"><span>Solutions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></RouterLink>
-            <ul>
-              <li><RouterLink  to="/">Nos clients</RouterLink></li>
-              <li><RouterLink  to="/" >Entreprises</RouterLink></li>
-            </ul>
-          </li>
-          <li><RouterLink  to="/">Contact</RouterLink></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <div class="header-social-links">
-        <RouterLink  to="/inscription" class="btn-nav" style="color:white;font-size: 13px;">Inscription</RouterLink>
+          <div class="right-navbar-content">
+            <!-- Bouton de menu -->
+            <div class="nav-menu-wrap">
+              <div 
+                class="menu-button w-nav-button" 
+                aria-label="menu" 
+                role="button" 
+                tabindex="0" 
+                aria-controls="w-nav-overlay-0" 
+                aria-haspopup="menu" 
+                aria-expanded="false"
+              >
+                <div class="menu-icon w-icon-nav-menu"></div>
+              </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav role="navigation" class="nav-menu w-nav-menu">
+              <a href="/" class="nav-link w-inline-block w--current" aria-current="page">
+                <div>Home</div>
+              </a>
+              <a href="/products" class="nav-link w-inline-block">
+                <div>Products</div>
+              </a>
+              <a href="/faq" class="nav-link w-inline-block">
+                <div>FAQ</div>
+              </a>
+              <div class="button-border">
+                <router-link to="/inscription" class="button-navbar margin-left w-inline-block">
+                  <div class="text-size-small">Contact Us</div>
+                </router-link>
+              </div>
+            </nav>
+          </div>
+        </div>
       </div>
-
     </div>
-  </header>
-
-
+    
+    <div class="overlay-navbar"></div>
+    <div class="w-nav-overlay" id="w-nav-overlay-0" data-wf-ignore></div>
+  </div>
 </template>
 
 <style scoped>
-
-.btn-nav {
-    color:white;
-    background: var(--accent-color);
-    font-family: "Poppins", sans-serif;
-    
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 27px;
-    border-radius: 2px;
-    transition: 0.5s;
-  
-}
-.logo-text{
-  font-size: 20px;
-    font-weight: 700;
-    padding-left: 20px;
-}
-
-
+/* Ajoutez ici vos styles si nécessaire */
 </style>
