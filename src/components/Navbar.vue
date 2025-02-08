@@ -31,17 +31,20 @@
             <!-- Navigation -->
             <nav role="navigation" class="nav-menu w-nav-menu">
               <a href="/" class="nav-link w-inline-block w--current" aria-current="page">
-                <div>Home</div>
+                <div>Acceuil</div>
               </a>
-              <a href="/products" class="nav-link w-inline-block">
-                <div>Products</div>
+              <a href="#services" class="nav-link w-inline-block">
+                <div>services</div>
               </a>
-              <a href="/faq" class="nav-link w-inline-block">
+              <a href="#target" class="nav-link w-inline-block">
                 <div>FAQ</div>
+              </a>
+              <a href="#target" class="nav-link w-inline-block">
+                <div>Createur</div>
               </a>
               <div class="button-border">
                 <router-link to="/inscription" class="button-navbar margin-left w-inline-block">
-                  <div class="text-size-small">Contact Us</div>
+                  <div class="text-size-small">Inscription</div>
                 </router-link>
               </div>
             </nav>
@@ -55,6 +58,9 @@
   </div>
 </template>
 
-<style scoped>
-/* Ajoutez ici vos styles si nécessaire */
+<style>
+
+html {
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
 </style>

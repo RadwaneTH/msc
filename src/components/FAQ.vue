@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section>
+  <section id="target">
     <div class="padding-global">
       <div class="w-layout-blockcontainer container small w-container">
         <div class="faq-wrapper">

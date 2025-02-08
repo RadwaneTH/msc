@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <section>
+  <section id="services">
     <div class="padding-global">
       <div class="w-layout-blockcontainer container w-container">
         <div id="bento" class="bento-wrapper">
@@ -14,20 +14,19 @@ export default {
               <div class="tag" v-for="n in 3" :key="n">
                 <div class="elipse"></div>
                 <div class="text-size-small caps">
-                  Designed for your everyday adventures
+                INdeep est simple, efficase et securiser
                 </div>
               </div>
             </div>
             <div class="heading-component">
               <div class="max-width-80ch">
                 <div class="heading-4">
-                  Explore our curated collection of high-quality products
+                  Explorez nos services de vérification ID.
                 </div>
               </div>
               <div class="max-width-45ch">
                 <div>
-                  Whether you're looking for a stylish new bag, a captivating book,
-                  or a perfect mug for your morning brew, we've got you covered.
+                  INdeep garantit une vérification d'identité optimale pour les clients et les entreprises, avec des mesures de sécurité renforcées.
                 </div>
               </div>
             </div>
@@ -37,7 +36,7 @@ export default {
             <div class="bento-row">
               <div class="card-small">
                 <img 
-                  src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66edb851d1aa09dfee6fd19e_Space%20Kit%20Images%2003.jpg" 
+                  src="../assets/img/img2.jpg" 
                   loading="lazy" 
                   alt="Product Image" 
                   class="image"
@@ -48,11 +47,11 @@ export default {
                 <div class="card-big-content">
                   <div class="max-width-60ch">
                     <div class="heading-6">
-                      Lightweight, durable, and perfect for any journey with our premium kits
+                      Verification ID est tout aussi fiable avec INdeep et facilite vos besoins.
                     </div>
                   </div>
                   <div class="secondary-button">
-                    <div class="text-size-small text-weight-medium">See Details</div>
+                    <div class="text-size-small text-weight-medium">En savoir plus</div>
                     <div class="arrow-wrapper">
                       <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
                     </div>
@@ -60,7 +59,7 @@ export default {
                 </div>
                 <div class="card-image">
                   <img 
-                    src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66edb85129b701ffed0ce721_Space%20Kit%20Images%2002.jpg" 
+                    src="../assets/img/img1.jpg" 
                     loading="lazy" 
                     alt="Product Image" 
                     class="image"
@@ -74,11 +73,11 @@ export default {
                 <div class="card-big-content">
                   <div class="max-width-40ch">
                     <div class="heading-6">
-                      Tools to stay organized and on top of your goals every day.
+                      Vérification et validation de votre passeport.
                     </div>
                   </div>
                   <div class="secondary-button">
-                    <div class="text-size-small text-weight-medium">Plan Ahead</div>
+                    <div class="text-size-small text-weight-medium">En savoir plus</div>
                     <div class="arrow-wrapper">
                       <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
                     </div>
@@ -86,7 +85,7 @@ export default {
                 </div>
                 <div class="card-image">
                   <img 
-                    src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66edb851a463b40d98d4a7db_Space%20Kit%20Images%2004.jpg" 
+                    src="../assets/img/img3.jpg" 
                     loading="lazy" 
                     alt="Product Image" 
                     class="image"
@@ -105,7 +104,7 @@ export default {
                 </div>
                 <div class="card-image">
                   <img 
-                    src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66edb851658dc7040c4b85f8_Space%20Kit%20Images%2005.jpg" 
+                    src="../assets/img/img4.jpg" 
                     loading="lazy" 
                     alt="Product Image" 
                     class="image"
@@ -119,3 +118,22 @@ export default {
     </div>
   </section>
 </template>
+
+<style scoped>
+
+.tag{
+  text-transform: none;
+  animation: scrollText 7s  linear infinite;
+}
+
+
+@keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+</style>
