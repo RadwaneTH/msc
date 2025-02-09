@@ -96,7 +96,7 @@ export default {
               <div class="card-small">
                 <div class="relative">
                   <a href="/products" class="primary-button w-inline-block">
-                    <div class="text-weight-medium caps">Learn More</div>
+                    <div class="text-weight-medium caps">En savoir plus</div>
                     <div class="arrow-wrapper">
                       <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
                     </div>

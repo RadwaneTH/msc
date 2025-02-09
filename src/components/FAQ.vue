@@ -1,4 +1,22 @@
 <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+        const arrow = item.querySelector(".arrow");
+        const answer = item.querySelector(".faq-bottom");
+
+        arrow.addEventListener("click", function () {
+            // Toggle la classe pour afficher ou cacher la réponse
+            answer.classList.toggle("active");
+
+            // Rotation de la flèche
+            arrow.classList.toggle("rotated");
+        });
+    });
+});
+
 </script>
 
 <template>
@@ -16,7 +34,7 @@
             "
             class="faq-heading"
           >
-            <div class="heading-5">Frequently asked questions</div>
+            <div class="heading-5">Questions fréquemment posées</div>
           </div>
 
           <div class="faq-component w-dyn-list">
@@ -25,7 +43,7 @@
                 <div class="faq-item">
                   <div class="faq-top">
                     <div class="faq-title-wrapper">
-                      <div>What’s the quality of your products?</div>
+                      <div>Qu'est-ce qu'INdeep et à quoi sert-il ?</div>
                     </div>
                     <div class="faq-action-wrapper">
                       <img
@@ -39,9 +57,7 @@
                   <div class="faq-bottom">
                     <div class="faq-bottom-content">
                       <p>
-                        We prioritize quality in every item we sell. Our
-                        products are designed to be durable, functional, and
-                        stylish.
+                        INdeep est une plateforme de vérification d'identité qui permet de confirmer l'authenticité des pièces d'identité et des passeports en toute sécurité.
                       </p>
                     </div>
                   </div>
@@ -52,7 +68,7 @@
                 <div class="faq-item">
                   <div class="faq-top">
                     <div class="faq-title-wrapper">
-                      <div>Do you offer returns?</div>
+                      <div>Comment fonctionne la vérification d'un document ?</div>
                     </div>
                     <div class="faq-action-wrapper">
                       <img
@@ -66,8 +82,7 @@
                   <div class="faq-bottom">
                     <div class="faq-bottom-content">
                       <p>
-                        Yes! If you're not 100% satisfied with your purchase, we
-                        offer a 30-day return policy on all products.
+                        Il vous suffit d'uploader une photo de votre document officiel. Notre système analyse les informations et vérifie leur authenticité grâce à des bases de données sécurisées.
                       </p>
                     </div>
                   </div>
@@ -78,7 +93,7 @@
                 <div class="faq-item">
                   <div class="faq-top">
                     <div class="faq-title-wrapper">
-                      <div>Do you ship internationally?</div>
+                      <div>Mes données sont-elles sécurisées ?</div>
                     </div>
                     <div class="faq-action-wrapper">
                       <img
@@ -92,8 +107,7 @@
                   <div class="faq-bottom">
                     <div class="faq-bottom-content">
                       <p>
-                        Absolutely. We offer worldwide shipping, so you can
-                        enjoy our products no matter where you are.
+                        Oui, la sécurité de vos informations est notre priorité. Toutes les données sont cryptées et traitées conformément aux normes de protection des données en vigueur.
                       </p>
                     </div>
                   </div>
@@ -104,7 +118,7 @@
                 <div class="faq-item">
                   <div class="faq-top">
                     <div class="faq-title-wrapper">
-                      <div>How long will my order take to arrive?</div>
+                      <div>Quels types de documents puis-je vérifier sur INdeep ?</div>
                     </div>
                     <div class="faq-action-wrapper">
                       <img
@@ -118,8 +132,7 @@
                   <div class="faq-bottom">
                     <div class="faq-bottom-content">
                       <p>
-                        Shipping times vary by location, but we aim to deliver
-                        within 5-10 business days for most orders.
+                        INdeep prend en charge les passeports, cartes d'identité nationales et permis de conduire émis par différents pays.
                       </p>
                     </div>
                   </div>
@@ -130,7 +143,7 @@
                 <div class="faq-item">
                   <div class="faq-top">
                     <div class="faq-title-wrapper">
-                      <div>Are your products environmentally friendly?</div>
+                      <div>Combien de temps prend la vérification d'un document ?</div>
                     </div>
                     <div class="faq-action-wrapper">
                       <img
@@ -144,9 +157,7 @@
                   <div class="faq-bottom">
                     <div class="faq-bottom-content">
                       <p>
-                        We are committed to sustainability and use eco-friendly
-                        materials whenever possible in the production and
-                        packaging of our products.
+                        Le processus est rapide et prend généralement quelques minutes, selon la qualité du document soumis et les vérifications nécessaires.
                       </p>
                     </div>
                   </div>
@@ -160,3 +171,31 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+
+.faq-bottom {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    padding: 0;
+}
+
+.faq-bottom.active {
+    max-height: 200px; /* Ajuste cette valeur selon la hauteur de ton contenu */
+    padding: 10px 0; /* Ajoute un léger padding pour l'effet de transition */
+}
+
+.arrow {
+    transition: transform 0.5s ease;
+}
+
+.arrow.rotated {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+</style>

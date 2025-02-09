@@ -19,7 +19,7 @@ import Footer from './Footer.vue';
             data-w-id="c00620c6-d1fd-d318-c2ad-334f18eed9a7" 
             class="max-width-60ch-2"
             style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); transform-style: preserve-3d;">
-            <div class="heading-2">Have questions or need support?</div>
+            <div class="heading-2">Inscription </div>
           </div>
         </div>
 
@@ -71,16 +71,35 @@ import Footer from './Footer.vue';
                   required="">
               </div>
 
-              <!-- Message Field -->
-              <label for="Text-Field" class="text-size-medium-vw">Message</label>
-              <textarea 
-                id="Text-Field" 
-                name="Text-Field" 
-                maxlength="5000" 
-                data-name="Text Field" 
-                placeholder="Your message..." 
-                class="text-field-contact w-input">
-              </textarea>
+              <!-- Email Field -->
+              <div class="name-wrapper-contact">
+                <label for="Enter-Your-Email" class="text-size-medium-vw">Creer un mot de passe</label>
+                <input 
+                  class="text-field-contact w-input" 
+                  maxlength="256" 
+                  name="Enter-Your-Email" 
+                  data-name="Enter Your Email" 
+                  placeholder="votre mot de passe" 
+                  type="email" 
+                  id="Enter-Your-Email" 
+                  required="">
+              </div>
+
+              <!-- Email Field -->
+              <div class="name-wrapper-contact">
+                <label for="Enter-Your-Email" class="text-size-medium-vw">Confirmer votre mot de passe</label>
+                <input 
+                  class="text-field-contact w-input" 
+                  maxlength="256" 
+                  name="Enter-Your-Email" 
+                  data-name="Enter Your Email" 
+                  placeholder="votre mot de passe" 
+                  type="email" 
+                  id="Enter-Your-Email" 
+                  required="">
+              </div>
+
+            
 
             </div> <!-- End Form Fields -->
 
