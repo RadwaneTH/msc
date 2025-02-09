@@ -1,6 +1,43 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
+import { ref } from "vue";
+import axios from "axios";
+
+
+// Reactive state for user input
+const user = ref({
+  username: "",
+  email: "",
+  password: "",
+});
+
+const message = ref(""); // To store success/error messages
+
+const registerUser = async () => {
+  try {
+    const response = await axios.post("/api/register", {
+      username: user.value.username,
+      email: user.value.email,
+      password: user.value.password,
+    });
+
+    message.value = response.data.message; // Success message
+  } catch (error) {
+    console.error("Registration error:", error.response?.data || error.message);
+    message.value = error.response?.data?.message || "Registration failed";
+  }
+};
+
+
+
+
+
+
+
+
+
+
 
 </script>
 
@@ -33,11 +70,7 @@ import Footer from './Footer.vue';
           <form 
             id="email-form" 
             name="email-form" 
-            data-name="Email Form" 
-            method="get" 
-            class="form" 
-            data-wf-page-id="66ec6afe3cc26899cbbb3018" 
-            data-wf-element-id="c00620c6-d1fd-d318-c2ad-334f18eed9ab" 
+           @submit.prevent="registerUser"
             aria-label="Email Form">
             
             <!-- Form Fields -->
@@ -45,11 +78,11 @@ import Footer from './Footer.vue';
               
               <!-- Name Field -->
               <div class="name-wrapper-contact">
-                <label for="Name" class="text-size-medium-vw">Name</label>
+                <label for="Name" class="text-size-medium-vw">Nom et Prenom</label>
                 <input 
                   class="text-field-contact w-input" 
                   maxlength="256" 
-                  name="Name" 
+                   v-model="user.username"
                   data-name="Name" 
                   placeholder="Enter your name" 
                   type="text" 
@@ -63,7 +96,7 @@ import Footer from './Footer.vue';
                 <input 
                   class="text-field-contact w-input" 
                   maxlength="256" 
-                  name="Enter-Your-Email" 
+                  v-model="user.email"
                   data-name="Enter Your Email" 
                   placeholder="Enter your e-mail" 
                   type="email" 
@@ -77,10 +110,10 @@ import Footer from './Footer.vue';
                 <input 
                   class="text-field-contact w-input" 
                   maxlength="256" 
-                  name="Enter-Your-Email" 
+                  v-model="user.password"
                   data-name="Enter Your Email" 
                   placeholder="votre mot de passe" 
-                  type="email" 
+                  type="password" 
                   id="Enter-Your-Email" 
                   required="">
               </div>
@@ -93,8 +126,8 @@ import Footer from './Footer.vue';
                   maxlength="256" 
                   name="Enter-Your-Email" 
                   data-name="Enter Your Email" 
-                  placeholder="votre mot de passe" 
-                  type="email" 
+                  placeholder="Confirmer votre mot de passe" 
+                  type="password" 
                   id="Enter-Your-Email" 
                   required="">
               </div>
@@ -107,24 +140,18 @@ import Footer from './Footer.vue';
             <div class="contact-button align-center">
               <div class="relative">
                 <div class="primary-button">
-                  <input type="submit" data-wait="Please wait..." class="submit-button w-button" value="Submit">
-                  <div class="text-weight-medium caps">Contact us</div>
+                  <input type="submit" class="submit-button w-button" value="Submit">
+                  <div class="text-weight-medium caps">Inscription</div>
                 </div>
               </div>
             </div>
 
+            <p v-if="message" style="color: aliceblue;">{{ message }}</p>
+
+
           </form> <!-- End Contact Form -->
 
-          <!-- Success Message -->
-          <div class="success-message w-form-done" tabindex="-1" role="region" aria-label="Email Form success">
-            <div class="text-size-contact">Thank you! Your submission has been received!</div>
-          </div>
-
-          <!-- Error Message -->
-          <div class="error-message w-form-fail" tabindex="-1" role="region" aria-label="Email Form failure">
-            <div class="text-size-medium-contact">Oops! Something went wrong while submitting the form.</div>
-          </div>
-
+         
         </div> <!-- End Form Wrapper -->
 
       </div>
