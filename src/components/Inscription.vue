@@ -1,10 +1,11 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
-import Connexion from './Connexion.vue';
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 import axios from "axios";
 
+const router = useRouter();
 
 // Reactive state for user input
 const user = ref({
