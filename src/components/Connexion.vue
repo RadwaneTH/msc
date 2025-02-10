@@ -1,7 +1,6 @@
 <script setup>
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
-import Connexion from './Connexion.vue';
 import { ref } from "vue";
 import axios from "axios";
 
@@ -23,8 +22,7 @@ const registerUser = async () => {
       password: user.value.password,
     });
 
-    message.value = response.data.message;
-    router.push("/connexion"); // Redirect to Connexion on success 
+    message.value = response.data.message; // Success message
   } catch (error) {
     console.error("Registration error:", error.response?.data || error.message);
     message.value = error.response?.data?.message || "Registration failed";
@@ -58,7 +56,7 @@ const registerUser = async () => {
             data-w-id="c00620c6-d1fd-d318-c2ad-334f18eed9a7" 
             class="max-width-60ch-2"
             style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); transform-style: preserve-3d;">
-            <div class="heading-2">Inscription </div>
+            <div class="heading-2">Connecter a votre compte </div>
           </div>
         </div>
 
@@ -79,18 +77,7 @@ const registerUser = async () => {
             <div class="form-content">
               
               <!-- Name Field -->
-              <div class="name-wrapper-contact">
-                <label for="Name" class="text-size-medium-vw">Nom et Prénom</label>
-                <input 
-                  class="text-field-contact w-input" 
-                  maxlength="256" 
-                   v-model="user.username"
-                  data-name="Name" 
-                  placeholder="Votre nom complet" 
-                  type="text" 
-                  id="Name" 
-                  required="">
-              </div>
+             
 
               <!-- Email Field -->
               <div class="name-wrapper-contact">
@@ -120,21 +107,6 @@ const registerUser = async () => {
                   required="">
               </div>
 
-              <!-- Email Field -->
-              <div class="name-wrapper-contact">
-                <label for="Enter-Your-Email" class="text-size-medium-vw">Confirmer votre mot de passe</label>
-                <input 
-                  class="text-field-contact w-input" 
-                  maxlength="256" 
-                  name="Enter-Your-Email" 
-                  data-name="Enter Your Email" 
-                  placeholder="Confirmer votre mot de passe" 
-                  type="password" 
-                  id="Enter-Your-Email" 
-                  required="">
-              </div>
-
-            
 
             </div> <!-- End Form Fields -->
 
