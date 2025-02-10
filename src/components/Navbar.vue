@@ -63,4 +63,27 @@
 html {
             scroll-behavior: smooth; /* Enables smooth scrolling */
         }
+
+        .w-icon-nav-menu:before {
+    content: "";
+}
+
+[class^="w-icon-"], [class*=" w-icon-"] {
+    speak: none;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    font-family: webflow-icons !important;
+}
+
+
+@media screen and (max-width: 991px) {
+    .menu-icon {
+        color: #1e3251;
+    }
+}
 </style>
