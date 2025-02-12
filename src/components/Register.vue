@@ -1,12 +1,39 @@
 <script setup>
+import { onMounted } from 'vue';
+import Navbar from './Navbar.vue';
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 import axios from "axios";
-import Navbar from "./Navbar.vue";
 
+
+////////////////////////////////////////////////////////////////
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Observe all elements with the 'fade-in-up' class
+  document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+
+///////////////////////////////////////////////////////////////
+
+
+
+
+////////////////// Register Function  ///////////////////////
+
+
+const router = useRouter();
 
 // Reactive state for user input
 const user = ref({
   username: "",
+  lastname:"",
   email: "",
   password: "",
 });
@@ -17,162 +44,266 @@ const registerUser = async () => {
   try {
     const response = await axios.post("/api/register", {
       username: user.value.username,
+      lastname:user.value.lastname,
       email: user.value.email,
       password: user.value.password,
     });
 
-    message.value = response.data.message; // Success message
+    message.value = response.data.message;
+    router.push("/connexion"); // Redirect to Connexion on success 
   } catch (error) {
     console.error("Registration error:", error.response?.data || error.message);
     message.value = error.response?.data?.message || "Registration failed";
   }
 };
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
+
 </script>
 
 <template>
+
   <Navbar />
-  <div class="register">
-    <form class="form" @submit.prevent="registerUser">
-      <div>
-        <h1>Tout commence par un compte.</h1>
-      </div>
 
-      <div>
-        <h2>Créer votre compte iNdeep.</h2>
-      </div>
-
-      <div style="display: flex; width: 100%;">
-        <input v-model="user.username" type="text" placeholder="Votre nom" style="width: 50%;" />
-        <input type="text" placeholder="Votre prénom" style="width: 50%;" />
-      </div>
-
-      <div style="display: flex; width: 100%;">
-        <input v-model="user.email" type="email" placeholder="Votre email" style="width: 100%;" />
-      </div>
-
-      <div style="display: flex; width: 100%;">
-        <input v-model="user.password" type="password" placeholder="Votre mot de passe" style="width: 100%;" />
-      </div>
-
-      <div style="display: flex; width: 100%;">
-        <input type="password" placeholder="Confirmer votre mot de passe" style="width: 100%;" />
-      </div>
-
-      <button type="submit">Créer un compte</button>
-    </form>
-
-    <!-- Display Success/Error Messages -->
-    <p v-if="message" style="color: aliceblue;">{{ message }}</p>
-  </div>
-
+<div class="wrapper  fade-in-up">
+			<div class="inner">
+				<form @submit.prevent="registerUser">
+					<h3>Rejoignez <span>Indeep.</span></h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Votre Nom</label>
+							<input type="text" class="form-control" v-model="user.username">
+						</div>
+						<div class="form-wrapper">
+							<label for="">Prenom</label>
+							<input type="text" class="form-control" v-model="user.lastname">
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="">Email</label>
+						<input type="email" class="form-control" v-model="user.email">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Creer un mot de passe</label>
+						<input type="password" class="form-control" v-model="user.password">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Confirmer votre mot de passe</label>
+						<input type="password" class="form-control">
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox">J'accepte les Politiques de confidentialité.
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<button class="btn" type="submit">Inscription</button>
+				</form>
+			</div>
+		</div>
+  
 </template>
 
 <style scoped>
-/* Your existing styles remain unchanged */
-</style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap');
 
 
-<style scoped>
-.register {
-
-    width: 100%;
-    height: 100vh;
-   padding-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(24,28,28,1) 0%, rgba(16,16,20,1) 100%);
-}
-
-.form{
-    backdrop-filter: saturate(180%) blur(20px);
-    background: #19191ec7;
-    height:fit-content;
-    width: 45%;
-    padding: 40px;
-    border-radius: 20px;
-    border-color: #252525;
-    border-style: solid;
-    border-width: 0.1px;
-    transition: 0.5s ease-in-out;
-   
-
-}
-
-.form h1{
-    color: rgb(220, 220, 220);
-    font-size: 1.9vw;
-    font-family: 'Roboto';
-    font-weight: 500;
-    margin: 0px;
-}
-
-.form h2{
-    background: -webkit-linear-gradient(180deg, #3bdf77 0%, #ff9264);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.5vw;
-    font-family: 'Roboto';
-    font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 40px;
-}
-
-.form  input{
-    padding: 15px;
-    background-color: #16161a;
-    color: #a1a2a5;
-    margin-bottom: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #2e3135;
-    border-radius: 5px;
-    width: 40%;
-    margin-right: 10px;
-}
-
-.form button{
-    width: 160px;
-    height: 43px;
-    background-color: #9fb86e;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #2c2c2e;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.7s ease-in-out;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    margin-top: 30px;
-    
-}
-
-.form button:hover{
-
-    background-color: #429570;
-
-
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+  font-family: Inter, sans-serif;
 }
 
 
-@media (max-width: 768px) {
 
-    .form{
+input, textarea, select, button {
+
+  color: #333;
+  font-size: 10px; 
+  font-family: Inter, sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0; 
+  font-family: Inter, sans-serif;
+}
+
+img {
+  max-width: 100%; }
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0; }
+
+a:hover {
+  text-decoration: none; }
+
+:focus {
+  outline: none; }
+
+.wrapper {
+  padding-top: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center; 
  
-
-    height: fit-content;
-    width: 80%;
-    padding: 30px;
-    transition: 0.5s ease-in-out;
-
-   
-
 }
 
+.inner {
+  min-width: 850px;
+  border-radius: 48px;
+  margin: auto;
+  padding-top: 68px;
+  padding-bottom: 48px;
+  background: url("../assets/img/register2.jpg"); }
+  .inner h3 {
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    line-height: 1.4vw;
+    font-weight: 300;
+  
+    margin-bottom: 32px;
+    
+    color: #333;
+   }
+
+   .inner h3 span {
+
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    line-height: 1.4vw;
+    font-style: italic;
+    font-weight: 100;
+   }
+
+form {
+  width: 50%;
+  padding-left: 45px; }
+
+.form-group {
+  display: flex; }
+  .form-group .form-wrapper {
+    width: 50%; }
+    .form-group .form-wrapper:first-child {
+      margin-right: 20px; }
+
+.form-wrapper {
+  margin-bottom: 17px; }
+  .form-wrapper label {
+    margin-bottom: 10px;
+    display: block; 
+    font-size: 14px;  
+  }
+
+.form-control {
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 5px;
+  font-family: "Muli-Bold";
+  background: none; }
+  .form-control:focus {
+    border: 1px solid #e28e2a; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-left: 20px; }
+  select option[value=""][disabled] {
+    display: none; }
+
+    .btn {
+      margin-top: 20px;
+  padding: 1em 2.2em;
+  border-color: transparent;
+  border-radius: 0.4em;
+  border-bottom: 1px solid #e28e2a;
+  color: #767676;
+  font-size: 13px;
 }
 
+.btn:hover {
+  padding: 1em 2.2em;
+  border-bottom-width: 2px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative; }
+  .checkbox label {
+    padding-left: 22px;
+    cursor: pointer; 
+    font-size: 14px;
+  }
+  .checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  .checkbox input:checked ~ .checkmark:after {
+    display: block; }
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 16px;
+ 
+  background-color: #e28e2a;
+  border: transparent;
+  font-family: Inter, sans-serif;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bolder; }
+  .checkmark:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    content: '✔'; }
+
+
+
+    .fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+@media (max-width: 991px) {
+  .inner {
+    min-width: 768px; } }
+@media (max-width: 767px) {
+  .inner {
+    min-width: auto;
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  form {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px; } }
 
 
 </style>

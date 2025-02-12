@@ -26,14 +26,14 @@ exports.handler = async (event) => {
 
     await connectToDB();
 
-    const { username, email, password } = JSON.parse(event.body);
+    const { username,lastname, email, password } = JSON.parse(event.body);
 
     let user = await User.findOne({ email });
     if (user) {
       return { statusCode: 400, body: JSON.stringify({ message: 'User already exists' }) };
     }
 
-    user = new User({ username, email, password });
+    user = new User({ username,lastname, email, password });
     await user.save();
 
     return { statusCode: 201, body: JSON.stringify({ message: 'User registered successfully!' }) };

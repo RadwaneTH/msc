@@ -1,13 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './components/Home.vue'
-
-import Inscription from './components/Inscription.vue';
+import Register from './components/Register.vue';
 import Connexion from './components/Connexion.vue';
 
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/inscription', component: Inscription },
+  { path: '/register', component: Register },
   { path: '/connexion', component: Connexion }
 
 ];
