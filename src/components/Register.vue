@@ -50,10 +50,11 @@ const registerUser = async () => {
     });
 
     message.value = response.data.message;
-    router.push("/connexion"); // Redirect to Connexion on success 
+    router.push("/registersuccess"); // Redirect to Connexion on success 
   } catch (error) {
     console.error("Registration error:", error.response?.data || error.message);
     message.value = error.response?.data?.message || "Registration failed";
+    router.push("/registerfailed");
   }
 };
 
@@ -123,8 +124,8 @@ const registerUser = async () => {
 
 input, textarea, select, button {
 
-  color: #333;
-  font-size: 10px; 
+  color: #5d5d5d;
+  font-size: 13px; 
   font-family: Inter, sans-serif;
 }
 
@@ -208,7 +209,7 @@ form {
   height: 40px;
   padding: 0 20px;
   border-radius: 5px;
-  font-family: "Muli-Bold";
+
   background: none; }
   .form-control:focus {
     border: 1px solid #e28e2a; }
