@@ -42,24 +42,21 @@ const message = ref(""); // To store success/error messages
 
 const registerUser = async () => {
   try {
-    const response = await axios.post("/api/register", {
+    const response = await axios.post("/.netlify/functions/register", {
       username: user.value.username,
-      lastname:user.value.lastname,
+      lastname: user.value.lastname,
       email: user.value.email,
       password: user.value.password,
     });
 
     message.value = response.data.message;
-    router.push("/connexion"); // Redirect to Connexion on success 
+    alert("Un email de confirmation a été envoyé. Veuillez vérifier votre boîte de réception.");
+    router.push("/connexion"); // Redirect after email is sent
   } catch (error) {
-    console.error("Registration error:", error.response?.data || error.message);
-    message.value = error.response?.data?.message || "Registration failed";
+    console.error("Erreur d'inscription:", error.response?.data || error.message);
+    message.value = error.response?.data?.message || "L'inscription a échoué.";
   }
 };
-
-
-
-
 
 
 
