@@ -21,7 +21,11 @@ const connectToDB = async () => {
 exports.handler = async (event) => {
   try {
     if (event.httpMethod !== 'POST') {
-      return { statusCode: 405, body: JSON.stringify({ message: 'Method Not Allowed' }) };
+      return { 
+        statusCode: 405, 
+        headers: { "Access-Control-Allow-Origin": "*" }, 
+        body: JSON.stringify({ message: 'Method Not Allowed' }) 
+      };
     }
 
     await connectToDB();
@@ -30,15 +34,29 @@ exports.handler = async (event) => {
 
     let user = await User.findOne({ email });
     if (user) {
-      return { statusCode: 400, body: JSON.stringify({ message: 'User already exists' }) };
+      return { 
+        statusCode: 400, 
+        headers: { "Access-Control-Allow-Origin": "*" }, 
+        body: JSON.stringify({ message: 'User already exists' }) 
+      };
     }
 
     user = new User({ username, email, password });
     await user.save();
 
-    return { statusCode: 201, body: JSON.stringify({ message: 'User registered successfully!' }) };
+    return { 
+      statusCode: 201, 
+      headers: { "Access-Control-Allow-Origin": "*" }, 
+      body: JSON.stringify({ message: 'User registered successfully!' }) 
+    };
+
   } catch (error) {
     console.error('Error in /api/register:', error);
-    return { statusCode: 500, body: JSON.stringify({ message: 'Server error' }) };
+    return { 
+      statusCode: 500, 
+      headers: { "Access-Control-Allow-Origin": "*" }, 
+      body: JSON.stringify({ message: 'Server error', error: error.message }) 
+    };
   }
 };
+
