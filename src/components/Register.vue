@@ -107,7 +107,7 @@ const registerUser = async () => {
         <form id="email-form" name="email-form" data-name="Email Form"  @submit.prevent="registerUser" aria-label="Email Form">
           <div class="field-wrapper">
             <label for="name" class="field-label">Nom et prenom</label>
-            <input class="text-field w-input" maxlength="256" name="name" placeholder="n. p. Nom Prenom" type="text" id="name-3" v-model="user.username" />
+            <input class="text-field w-input" maxlength="256" name="name" placeholder="n. p. Nom Prenom" type="text" id="name" v-model="user.username" />
           </div>
 
           <div class="field-wrapper">
@@ -117,12 +117,12 @@ const registerUser = async () => {
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Creer un mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" v-model="user.password" />
+            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="password" id="password" v-model="user.password" />
           </div>
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Confirmer votre mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" />
+            <input class="text-field w-input" maxlength="256" name="password" placeholder="Confirmer mot de passe" type="password"  />
           </div>
 
          
