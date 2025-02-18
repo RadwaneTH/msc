@@ -2,6 +2,9 @@
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
 import { onMounted } from 'vue';
+import { useRouter } from "vue-router";
+import { ref } from "vue";
+import axios from "axios";
 
 // Function to handle Intersection Observer
 onMounted(() => {
@@ -16,6 +19,43 @@ onMounted(() => {
   // Observe all elements with the 'fade-in-up' class
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 });
+
+
+
+
+//////////////// Function register    /////////////////////////////
+
+const router = useRouter();
+
+// Reactive state for user input
+const user = ref({
+  username: "",
+  email: "",
+  password: "",
+});
+
+const message = ref(""); // To store success/error messages
+
+const registerUser = async () => {
+  try {
+    const response = await axios.post("/api/register", {
+      username: user.value.username,
+      email: user.value.email,
+      password: user.value.password,
+    });
+
+    message.value = response.data.message;
+    router.push("/profile"); // Redirect to Connexion on success 
+  } catch (error) {
+    console.error("Registration error:", error.response?.data || error.message);
+    message.value = error.response?.data?.message || "Registration failed";
+  }
+};
+
+
+
+
+////////////////////////////////////////////////////////////////////////
 
 
 </script>
@@ -64,20 +104,20 @@ onMounted(() => {
   <section class="section fade-in-up">
     <div class="w-layout-blockcontainer container w-container">
       <div class="form-wrapper slide-up-animation w-form" style="opacity: 1;">
-        <form id="email-form" name="email-form" data-name="Email Form" method="get" aria-label="Email Form">
+        <form id="email-form" name="email-form" data-name="Email Form"  @submit.prevent="registerUser" aria-label="Email Form">
           <div class="field-wrapper">
             <label for="name" class="field-label">Nom et prenom</label>
-            <input class="text-field w-input" maxlength="256" name="name" placeholder="n. p. Nom Prenom" type="text" id="name-3" />
+            <input class="text-field w-input" maxlength="256" name="name" placeholder="n. p. Nom Prenom" type="text" id="name-3" v-model="user.username" />
           </div>
 
           <div class="field-wrapper">
             <label for="email" class="field-label">Votre adresse email</label>
-            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3" required />
+            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3"v-model="user.email"  required />
           </div>
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Creer un mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" />
+            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" v-model="user.password" />
           </div>
 
           <div class="field-wrapper">
@@ -88,6 +128,8 @@ onMounted(() => {
          
 
           <input type="submit" class="button w-button" value="Creer un compte" />
+
+          <p v-if="message" style="color: black;">{{ message }}</p>
         </form>
 
         <!-- Success and Error Messages -->
