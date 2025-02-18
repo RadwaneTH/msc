@@ -37,8 +37,13 @@ const user = ref({
 const message = ref(""); // To store success/error messages
 
 const registerUser = async () => {
+  if (user.value.password !== user.value.confirmPassword) {
+    message.value = "Passwords do not match!";
+    return;
+  }
+
   try {
-    const response = await axios.post("/api/register", {
+    const response = await axios.post(`${import.meta.env.VUE_APP_API_URL}/register`, {
       username: user.value.username,
       email: user.value.email,
       password: user.value.password,
@@ -51,6 +56,7 @@ const registerUser = async () => {
     message.value = error.response?.data?.message || "Registration failed";
   }
 };
+
 
 
 
@@ -112,7 +118,7 @@ const registerUser = async () => {
 
           <div class="field-wrapper">
             <label for="email" class="field-label">Votre adresse email</label>
-            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3" v-model="user.email" required />
+            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email" v-model="user.email" required />
           </div>
 
           <div class="field-wrapper">
@@ -122,7 +128,7 @@ const registerUser = async () => {
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Confirmer votre mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="cfpassword" placeholder="Votre mot de passe" type="password" id="cfpassword"  />
+            <input class="text-field w-input" maxlength="256" name="cfpassword" placeholder="Confirmer votre mot de passe" type="password" id="cfpassword" v-model="user.confirmPassword" />
           </div>
 
          
