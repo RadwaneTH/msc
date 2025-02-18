@@ -112,17 +112,17 @@ const registerUser = async () => {
 
           <div class="field-wrapper">
             <label for="email" class="field-label">Votre adresse email</label>
-            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3"v-model="email"  required />
+            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3" v-model="user.email" required />
           </div>
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Creer un mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="password" id="password" v-model="password" />
+            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="password" id="password" v-model="user.password" />
           </div>
 
           <div class="field-wrapper">
             <label for="Phone" class="field-label">Confirmer votre mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Confirmer mot de passe" type="password"  />
+            <input class="text-field w-input" maxlength="256" name="cfpassword" placeholder="Votre mot de passe" type="password" id="cfpassword"  />
           </div>
 
          
