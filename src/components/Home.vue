@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted } from 'vue';
-import Navbar from './Navbar.vue'
-import Slider from './Slider.vue'
-import Services from './Services.vue'
-import Faq from './Faq.vue'
+import Navbar from './Navbar.vue';
+import Slider from './Slider.vue';
+import Services from './Services.vue';
+import Question from "./Question.vue"; 
 import Newsletter from './Newsletter.vue';
 import Footer from './Footer.vue';
 
@@ -50,7 +50,7 @@ onMounted(() => {
       </div>
   
       <div class="fade-in-up">
-        <Faq />
+        <Question />
       </div>
 
     
