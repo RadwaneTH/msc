@@ -3,7 +3,7 @@ import { onMounted } from 'vue';
 import Navbar from './Navbar.vue'
 import Slider from './Slider.vue'
 import Services from './Services.vue'
-import Faq from "@/components/Faq.vue";
+import Faq from './Faq.vue'
 import Newsletter from './Newsletter.vue';
 import Footer from './Footer.vue';
 
