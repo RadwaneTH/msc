@@ -1,139 +1,94 @@
 <script>
-export default {
-  name: "BentoSection",
-};
+// Ajoutez ici vos scripts Vue.js si nécessaire
 </script>
 
 <template>
-  <section id="services">
-    <div class="padding-global">
-      <div class="w-layout-blockcontainer container w-container">
-        <div id="bento" class="bento-wrapper">
-          <div class="bento-header">
-            <div class="tag-marquee">
-              <div class="tag" v-for="n in 3" :key="n">
-                <div class="elipse"></div>
-                <div class="text-size-small caps">
-                INdeep est simple, efficase et securiser
-                </div>
-              </div>
-            </div>
-            <div class="heading-component">
-              <div class="max-width-80ch">
-                <div class="heading-4">
-                  Explorez nos services de vérification ID.
-                </div>
-              </div>
-              <div class="max-width-45ch">
-                <div>
-                  INdeep garantit une vérification d'identité optimale pour les clients et les entreprises, avec des mesures de sécurité renforcées.
-                </div>
-              </div>
-            </div>
-          </div>
+  <section class="section">
+    <div class="w-layout-blockcontainer container padding-4-5rem w-container">
+      
+      <!-- Première carte -->
+      <div id="explore" class="card-flex">
+        <div class="features-image-wrapper flip-from-left-animation">
+          <img 
+            sizes="(max-width: 479px) 80vw, (max-width: 991px) 312px, 22vw" 
           
-          <div class="bento-component">
-            <div class="bento-row">
-              <div class="card-small">
-                <img 
-                  src="../assets/img/img2.jpg" 
-                  loading="lazy" 
-                  alt="Product Image" 
-                  class="image"
-                />
+            src="../assets/passverif.jpg" 
+            loading="eager" 
+            class="features-image"
+          />
+          <div class="pop-up-card top-right background-blur">
+            <h4>2X</h4>
+            <p>Essais gratuits</p>
+          </div>
+        </div>
+        
+        <div class="large-card">
+          <div class="card-text-block slide-from-right-animation">
+            <div class="subheading-flex">
+              <div class="icon-wrapper">
+                <img src="https://cdn.prod.website-files.com/6706104d4f29e916e4cae2ad/6706104d4f29e916e4cae495_svg_HFET.svg" 
+                     alt="icon" 
+                     class="icon" 
+                     loading="eager"/>
               </div>
-              
-              <a href="/products" class="card-big w-inline-block">
-                <div class="card-big-content">
-                  <div class="max-width-60ch">
-                    <div class="heading-6">
-                      Verification ID est tout aussi fiable avec INdeep et facilite vos besoins.
-                    </div>
-                  </div>
-                  <div class="secondary-button">
-                    <div class="text-size-small text-weight-medium">En savoir plus</div>
-                    <div class="arrow-wrapper">
-                      <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
-                    </div>
-                  </div>
-                </div>
-                <div class="card-image">
-                  <img 
-                    src="../assets/img/img1.jpg" 
-                    loading="lazy" 
-                    alt="Product Image" 
-                    class="image"
-                  />
-                </div>
-              </a>
+              <h5>Basé sur la vérification MRZ.</h5>
             </div>
-            
-            <div class="bento-row">
-              <a href="/products" class="card-big w-inline-block">
-                <div class="card-big-content">
-                  <div class="max-width-40ch">
-                    <div class="heading-6">
-                      Vérification et validation de votre passeport.
-                    </div>
-                  </div>
-                  <div class="secondary-button">
-                    <div class="text-size-small text-weight-medium">En savoir plus</div>
-                    <div class="arrow-wrapper">
-                      <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
-                    </div>
-                  </div>
-                </div>
-                <div class="card-image">
-                  <img 
-                    src="../assets/img/img3.jpg" 
-                    loading="lazy" 
-                    alt="Product Image" 
-                    class="image"
-                  />
-                </div>
-              </a>
-              
-              <div class="card-small">
-                <div class="relative">
-                  <a href="/products" class="primary-button w-inline-block">
-                    <div class="text-weight-medium caps">En savoir plus</div>
-                    <div class="arrow-wrapper">
-                      <img src="https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66ec73d25cc29a183b05252f_Arrow.svg" alt="Arrow" />
-                    </div>
-                  </a>
-                </div>
-                <div class="card-image">
-                  <img 
-                    src="../assets/img/img4.jpg" 
-                    loading="lazy" 
-                    alt="Product Image" 
-                    class="image"
-                  />
-                </div>
-              </div>
-            </div>
+            <h3>Validation <span class="italics">passport.</span></h3>
+            <p class="max-width-30rem">Vérifiez et validez les passeports de vos clients en ligne avec INdeep, en toute sécurité.</p>
+            <a href="/services" class="button-with-circle-icon w-inline-block">
+              <p class="button-text">Explorer</p>
+              <p class="button-text move-down hide-on-tab">Explore</p>
+              <div class="circle-absolute"></div>
+            </a>
           </div>
         </div>
       </div>
+      
+      <div class="space-7rem"></div>
+      
+      <!-- Deuxième carte -->
+      <div class="card-flex reverse-on-tab">
+        <div class="large-card">
+          <div class="card-text-block slide-from-left-animation">
+            <div class="subheading-flex">
+              <div class="icon-wrapper">
+                <img src="https://cdn.prod.website-files.com/6706104d4f29e916e4cae2ad/6706104d4f29e916e4cae495_svg_HFET.svg" 
+                     alt="icon" 
+                     class="icon" 
+                     loading="eager"/>
+              </div>
+              <h5>Basé sur le MRZ et le code-barres.</h5>
+            </div>
+            <h3>Validation <span class="italics">Cartes ID.</span></h3>
+            <p class="max-width-30rem">Vérifiez et validez les cartes ID de vos clients en ligne avec INdeep, en toute sécurité..</p>
+            <a href="/about" class="button-with-circle-icon w-inline-block">
+              <p class="button-text">Explorer</p>
+              <p class="button-text move-down hide-on-tab">Explorer</p>
+              <div class="circle-absolute"></div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="features-image-wrapper flip-from-left-animation">
+          <img 
+            sizes="(max-width: 479px) 80vw, (max-width: 991px) 312px, 22vw" 
+           
+            src="../assets/idverif.jpg" 
+            loading="lazy" 
+            class="features-image"
+          />
+          <div class="pop-up-card top-left background-blur">
+            <h4>2X</h4>
+            <p>Essais gratuits</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="space-7rem"></div>
     </div>
   </section>
 </template>
 
 <style scoped>
-
-.tag{
-  text-transform: none;
-  animation: scrollText 7s  linear infinite;
-}
-
-
-@keyframes scrollText {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
+/* Ajoutez ici vos styles CSS */
 </style>

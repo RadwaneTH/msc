@@ -18,6 +18,12 @@ onMounted(() => {
 });
 
 
+
+
+
+
+
+
 </script>
 
 <template>
@@ -40,17 +46,23 @@ onMounted(() => {
               loading="eager"
             />
           </div>
-          <h5>Inscription gratuite</h5>
+          <h5>disponible 24h/7</h5>
         </div>
 
         <!-- Contact Title -->
         <h1 class="contact-title" data-w-id="2b428689-5a35-99ff-f397-e68c91393ae6" style="opacity: 1;">
-            Rejoindre INdeep
+          Contactez-nous
         </h1>
 
         <!-- Contact Description -->
         <h5 class="max-width-20rem" data-w-id="2b428689-5a35-99ff-f397-e68c91393ae8" style="opacity: 1;">
-            Profitez de plusieurs plans pour la validation de votre identité.
+          N’hésitez pas à nous contacter. Nous sommes à votre écoute !
+
+
+
+
+
+
 
 
         </h5>
@@ -67,27 +79,25 @@ onMounted(() => {
         <form id="email-form" name="email-form" data-name="Email Form" method="get" aria-label="Email Form">
           <div class="field-wrapper">
             <label for="name" class="field-label">Nom et prenom</label>
-            <input class="text-field w-input" maxlength="256" name="name" placeholder="n. p. Nom Prenom" type="text" id="name-3" />
+            <input class="text-field w-input" maxlength="256" name="name-3" placeholder="n. p. Nom Prenom" type="text" id="name-3" />
           </div>
 
           <div class="field-wrapper">
             <label for="email" class="field-label">Votre adresse email</label>
-            <input class="text-field w-input" maxlength="256" name="email" placeholder="e. g. exemple@email.com" type="email" id="email-3" required />
+            <input class="text-field w-input" maxlength="256" name="email-3" placeholder="e. g. exemple@email.com" type="email" id="email-3" required />
           </div>
 
           <div class="field-wrapper">
-            <label for="Phone" class="field-label">Creer un mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" />
+            <label for="Phone" class="field-label">Votre numero de telephone</label>
+            <input class="text-field w-input" maxlength="256" name="Phone" placeholder="(123) - 456 - 789" type="tel" id="Phone" />
           </div>
 
           <div class="field-wrapper">
-            <label for="Phone" class="field-label">Confirmer votre mot de passe</label>
-            <input class="text-field w-input" maxlength="256" name="password" placeholder="Votre mot de passe" type="tel" id="Phone" />
+            <label for="Message" class="field-label">Votre message</label>
+            <textarea id="Message" name="Message" maxlength="5000" placeholder="Ecrire ici votre message" required class="message-area w-input"></textarea>
           </div>
 
-         
-
-          <input type="submit" class="button w-button" value="Creer un compte" />
+          <input type="submit" class="button w-button" value="Send Message" />
         </form>
 
         <!-- Success and Error Messages -->
