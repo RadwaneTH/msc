@@ -17,7 +17,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',  // Adjust the path and port as needed
+      '/api': 'http://localhost:5173',  // Adjust the path and port as needed
     },
   },
 })

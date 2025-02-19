@@ -108,9 +108,9 @@ const registerUser = async () => {
 
   <!-- Contact Form Section -->
   <section class="section fade-in-up">
-    <div class="w-layout-blockcontainer container w-container">
+    <div class="w-layout container w-container">
       <div class="form-wrapper slide-up-animation w-form" style="opacity: 1;">
-        <form id="email-form" name="email-form" data-name="Email Form"  @submit.prevent="registerUser" aria-label="Email Form">
+        <form id="email-form" name="email-form"  @submit.prevent="registerUser" aria-label="Email Form">
           <div class="field-wrapper">
             <label for="name" class="field-label">Nom et prenom</label>
             <input class="text-field w-input" maxlength="256" name="username" placeholder="n. p. Nom Prenom" type="text" id="name" v-model="user.username" />
@@ -138,14 +138,7 @@ const registerUser = async () => {
           <p v-if="message" style="color: black;">{{ message }}</p>
         </form>
 
-        <!-- Success and Error Messages -->
-        <div class="contact-success-message w-form-done" tabindex="-1" aria-label="Email Form success">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-
-        <div class="contact-error-message w-form-fail" tabindex="-1" aria-label="Email Form failure">
-          <div>Oops! Something went wrong while submitting the form.</div>
-        </div>
+        
       </div>
 
       <div class="space-7rem"></div>
